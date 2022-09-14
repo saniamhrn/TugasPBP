@@ -1,6 +1,4 @@
 # TODO: Implement Routings Here
-
-from urllib.parse import urlparse
 from django.urls import path
 from katalog.views import show_katalog
 
