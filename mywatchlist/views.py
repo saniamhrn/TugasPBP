@@ -21,7 +21,3 @@ def show_xml_mywatchlist(request):
 def show_json_mywatchlist(request):
         data_json = MyWatchList.objects.all()
         return HttpResponse(serializers.serialize("json", data_json), content_type="application/json")
-
-def show_html_mywatchlist(request):
-        data = MyWatchList.objects.filter()
-        return HttpResponse(serializers.serialize("html", data), content_type="application/html")
