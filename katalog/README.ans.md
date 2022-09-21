@@ -1,4 +1,4 @@
-Link aplikasi Heroku:
+Link aplikasi Heroku: 
 
 Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html;
 ans : ketika ada request URL masuk, django akan menerima URL lalu mengecek urls.py dan memanggil views yang cocok dengan URL.
