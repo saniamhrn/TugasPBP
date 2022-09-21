@@ -56,4 +56,7 @@
 
 #### Akses di postman
 
-![image.png]( {https://user-images.githubusercontent.com/71616521/191571716-d342c6b6-e988-4aec-a789-674ce2c66787.png} )
+<img width="709" alt="Screen Shot 2022-09-21 at 22 57 30" src="https://user-images.githubusercontent.com/71616521/191582880-abe5843e-6d6e-406f-8d6f-3bb8cf2acca5.png">
+<img width="709" alt="Screen Shot 2022-09-21 at 22 58 13" src="https://user-images.githubusercontent.com/71616521/191582979-23679566-81b6-4dc1-a685-88df8db778fa.png">
+<img width="709" alt="Screen Shot 2022-09-21 at 22 58 24" src="https://user-images.githubusercontent.com/71616521/191582996-0ffbd2b1-8040-48f7-ab17-fb64aa8cdb4f.png">
+
