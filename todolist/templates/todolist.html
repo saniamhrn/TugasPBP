@@ -28,6 +28,7 @@
     {% endfor %}
   </table>
 
+  <h5>Sesi terakhir login: {{ last_login }}</h5>
   
   <button><a href="{% url 'todolist:addtask' %}">Addtask</a></button>
 

@@ -8,6 +8,9 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from .models import Task
 from .forms import TaskForm
+import datetime
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 @login_required(login_url='/wishlist/login/')
 def show_todolist(request):
@@ -16,7 +19,7 @@ def show_todolist(request):
                 'todolist': data_todolist,
                 'nama': 'Sania Rizqi Maharani',
                 'student_id': '2006597001',
-                
+                'last_login': request.COOOKIES['last_login'],
         }
         return render(request, "todolist.html", context)
 
@@ -40,7 +43,9 @@ def login_user(request):
                 user = authenticate(request, username=username, password=password)
                 if user is not None:
                         login(request, user)
-                        return redirect('todolist:show_todolist')
+                        response = HttpResponseRedirect(reverse("todolist:show_todolist")) 
+                        response.set_cookie('last_login', str(datetime.datetime.now())) 
+                        return response
                 else:
                         messages.info(request, 'Username atau Password salah!')
         context = {}
@@ -48,7 +53,9 @@ def login_user(request):
 
 def logout_user(request):
         logout(request)
-        return redirect('todolist:login')
+        response = HttpResponseRedirect(reverse('todolist:login'))
+        response.delete_cookie('last_login')
+        return response
 
 def add_task(request):
         form = TaskForm(request.POST)
@@ -56,9 +63,12 @@ def add_task(request):
         if request.method == "POST":
                 form = TaskForm(request.POST)
                 if form.is_valid():
-                        # Task.user = request.user
+                        save_data = Task.objects.create(
+                                title = form.cleaned_data.get('title'),
+                                description = form.cleaned_data.get('description')
+                        )
                         form.save(commit=False)
-                        # form.save_m2m()
+                        
                         messages.success(request, 'Task telah berhasil ditambahkan!')
                         return redirect('todolist:show_todolist')
     
